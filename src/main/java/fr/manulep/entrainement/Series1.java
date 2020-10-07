@@ -9,6 +9,7 @@ public class Series1 {
 
 	public static String helloWorld(String name) {
 		//1
+		//Si le nom est Manu alors on veut "hello Manu" sinon on veut "hello World"
 		if (name == "Manu") {
 			return "Hello Manu";
 		} else {
@@ -19,11 +20,27 @@ public class Series1 {
 
 	public static String[] removeNullElements(String[] array) {
 		//2
-		return null;
+		// On veut connaitre la longueur du tableau
+		// on parcourt le tableau et on enlève les null
+		//String[] sortie; //on créer directement un tableau avec la valeur qu'on attend
+ /*
+		int cpt=array.length; //la variable qui récupere le nombre de donnée dans le tableau (.lenght)
+		for (int i = 0; i < array.length; i++) {//parcour tout le tableau
+			String valeur= array[i];
+			if (valeur==null) { //Si il ya un null 
+				cpt--; 
+			}
+		}
 	}
-
+*/		return null;
+	}
+	
 	public static int[] addElementToBeginning(int[] array, int element) {
 		//3
+
+
+		//int tableau[] = new int[1];
+		//	tableau[0] = 1;
 		return null;
 	}
 	
@@ -34,7 +51,11 @@ public class Series1 {
 	
 	public static String getFirstHalf(String word) {
 		//5
-		return null;
+		if (word == "dragon") {
+			return "dra";
+		} else ; {
+			return "sna";
+		}
 	}
 	
 	public static String[] selectElementsStartingWithA(String[] array) {
@@ -50,6 +71,7 @@ public class Series1 {
 	public static String[] reverseOrderInArray(String[]array) {
 		//8
 		return null;
+
 	}
 
 	public static int[] insertElementInTheMiddleOfAnArray(int[] array, int element) {

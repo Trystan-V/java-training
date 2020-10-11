@@ -117,6 +117,10 @@ public class Series1 {
 
 	public static String removeCapitals(String text) {
 		//11
+		//transformer text en tableau
+		//parcourir le tableau 
+		// si  une lettre est égale à une capitale alors remove
+		// sinon rien
 		return null;
 	}
 	
@@ -171,6 +175,10 @@ public class Series1 {
 
 	public static boolean checkIfStringStartsWithConsonant( String word ) {
 		//17
+		//transformer word en tableau
+		//parcourir le tableau (juste la premiere lettre)
+		// si elle est égale à une consonne = true
+		// sinon = faux
 		return false;
 	}
 

@@ -39,7 +39,14 @@ public class Series1 {
 	
 	public static int[] addElementToBeginning(int[] array, int element) {
 		//3
-		return null;
+		int[] Sortie = {};
+		Sortie = new int[array.length];
+		int cpt = array.length;
+		for (int i = 0; i < Sortie.length; i++) {
+			
+		}
+
+		return Sortie;
 
 	}
 	
@@ -59,18 +66,29 @@ public class Series1 {
 	public static String getFirstHalf(String word) {
 		//5
 	String result; // Résultat final
-	int division= word.length()%2; // découpe le mot en 2
-	if (division == 0) {
-		result = word.substring(0, (word.length() / 2));
+	int division= word.length()%2; // découpe le mot en 2 on garde le modulo
+	if (division == 0) { // si c'est égal à O 
+		result = word.substring(0, (word.length() / 2)); // on prend la premiere moitié 
 	} else {
-		result = word.substring(0, (word.length() / 2+1));
+		result = word.substring(0, (word.length() / 2+1));// sinon on ajoute 1 au réslutat
 	}
 	return result;
 	}
 	
 	public static String[] selectElementsStartingWithA(String[] array) {
 		//6
-		return null;
+	// 	String[] sortie = {};
+	// 	sortie = new String[array.length];
+	// 	for (int i = 0; i < array.length; i++) {
+	// 		if () {
+				
+	// 		} else {
+				
+	// 		}
+	// 	}
+		
+	// }
+	return null;
 	}
 	
 	public static String[] selectElementsStartingWithVowel(String[]array) {
@@ -126,7 +144,7 @@ public class Series1 {
 		float result;
 		
 		if (number > 0) {
-			result = number-(number*2);
+			result = number*(-1);
 			return result;
 		} else {
 			return number;
@@ -136,7 +154,19 @@ public class Series1 {
 
 	public static boolean checkForSpecialCharacters(String string) {
 		//16
-		return false;
+		// String string;
+		// int count = 0;
+
+		// for(int i = 0; i < string.length(); i++) {  
+        //     if(string.charAt(i) == '&' && string.charAt(i) == '@')  {
+				
+		// 		return true;
+		// 	} 
+		// 	else {
+		// 		count++;
+		// 	}
+		// }
+			return true;
 	}
 
 	public static boolean checkIfStringStartsWithConsonant( String word ) {
@@ -158,7 +188,7 @@ public class Series1 {
 		
 		//20
 		// int reste = number % 2;
-
+		
 		// if(reste == 0) {
 			return true;
 		//}

@@ -3,6 +3,8 @@ package fr.manulep.entrainement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import com.google.common.primitives.Chars;
 
 public class Series1 {
 
@@ -66,19 +68,18 @@ public class Series1 {
 
 		// return Sortie;
 
-			int[] sortie = new int[array.length + 1]; // je crée un nouveau tableau comme le premier mais avec 1 place en plus
+		int[] sortie = new int[array.length + 1]; // je crée un nouveau tableau comme le premier mais avec 1 place en
+													// plus
 
-			sortie[0]= element; // à la position 0 il ya mon élément
+		sortie[0] = element; // à la position 0 il ya mon élément
 
-			for ( int i = 0; i < array.length; i++) { //Je parcours le tableau pour savoir ce qu'il y a dedans
-				sortie[i + 1] = array[i];// et hop j'ajoute l'array a mon tableau de sortie
-			}
-			
-			return sortie;
+		for (int i = 0; i < array.length; i++) { // Je parcours le tableau pour savoir ce qu'il y a dedans
+			sortie[i + 1] = array[i];// et hop j'ajoute l'array a mon tableau de sortie
+		}
+
+		return sortie;
 
 	}
-
-	
 
 	public static int[] allElementsExceptFirstThree(int[] array) {
 		// 4
@@ -237,22 +238,47 @@ public class Series1 {
 		 * dedans)
 		 * 
 		 */
-		String[] retour;
+		String[] reverse = new String[array.length];
+		int j = array.length - 1;
 
-		// ArrayList<String> stock = new ArrayList<String>();
-
-		// for (String inverse : array) {
-		// stock.reverse(inverse);
-		// }
-
-		// retour = stock.toArray(new String[stock.size()]);
-
-		return null;
+		for (int i = 0; i < array.length; i++) {
+			reverse[i] = array[j];
+			j--;
+		}
+		return reverse;
 	}
+
+	// ArrayList<String> stock = new ArrayList<String>();
+
+	// for (String inverse : array) {
+	// stock.reverse(inverse);
+	// }
+
+	// retour = stock.toArray(new String[stock.size()]);
 
 	public static int[] insertElementInTheMiddleOfAnArray(int[] array, int element) {
 		// 9
-		return null;
+		List<Integer> listClone = new ArrayList<>(); // on créer un nouvel ArrayList
+		for (int num : array) {
+			listClone.add(num); // on clone le array de base dans notre nouvel ArrayList
+		}
+
+		// Find the index of position and insert element
+		int middleArray = Math.round(array.length / 2); // on trouve le milieu de notre array (length/2) et la fonction
+														// round permet de ramener à l'entier précédent (pour les
+														// tableaux impair)
+		listClone.add(middleArray, element); // on ajoute à notre nouvel ArrayList (lisClone) nos éléments à ajouter
+												// (8,-7,4...), en fonction de notre middleArray (donc l'index au milieu
+												// du tab)
+
+		// Convert ArrayList to Array
+		int[] newArray = new int[listClone.size()]; // on créer un newArray avec comme taille la size de notre ArrayList
+													// listClone
+		for (int i = 0; i < newArray.length; i++) { // parcours la longueur de notre Array
+			newArray[i] = listClone.get(i); // on dit que les elements de notre ArrayList (listClone) vont dans notre
+											// newArray, aux mêmes index.
+		}
+		return newArray;
 	}
 
 	public static String shortestWord(String text) {
@@ -274,7 +300,16 @@ public class Series1 {
 	public static String removeCapitals(String text) {
 		// 11
 
-		return null;
+		String notCapital = ""; //créer la variable du résultat
+		
+		for (int i = 0; i < text.length(); i++) { // on parcours le texte
+			
+			char letter = text.charAt(i); //pour chaque lettre
+			if (!Character.isUpperCase(letter)) { // si la lettre est l'inverse d'une majuscule 
+				notCapital += letter; // on met la lettre dans notre résultat
+			}
+		}
+		return notCapital; 
 	}
 
 	public static long addingTwoNumbers(long number1, long number2) {
@@ -311,64 +346,104 @@ public class Series1 {
 
 	public static boolean checkForSpecialCharacters(String string) {
 		// 16
-		//String elem;
-		boolean specialCharacters;
-		String recherche;
+		// String elem;
+		// boolean specialCharacters;
 
-		for(int i = 0; i < string.length(); i++){
-		if(string.substring(0) == "&") {
- 
-		specialCharacters = true;
-				
-			}
-		else {
-		specialCharacters = false;
-		}
+		// for(int i = 0; i < string.length(); i++){
+		// if(string.substring(0) == "&" || string.substring(0) == "@" ||
+		// string.substring(0) == "%" ) {
 
-		
+		// specialCharacters = true;
 
+		// } else {
+		// specialCharacters = false;
+		// }
+		// return specialCharacters;
+		// }
 
-		
-		return specialCharacters;
-	
+		// }
+		Pattern special = Pattern.compile("[@#$%&*()_+=|<>?{}\\[\\]~-]"); // cration d'un pattern
+		Matcher hasSpecial = special.matcher(string);// on compare
+
+		return hasSpecial.find();
 	}
+	// return false;}
 
 	public static boolean checkIfStringStartsWithConsonant(String word) {
 		// 17
 
-	// 	 for (String letter: word) {
-	// 		if (word.substring(0, 1).equalsIgnoreCase("a") || word.substring(0, 1).equalsIgnoreCase("e") || word.substring(0, 1).equalsIgnoreCase("i")
-	// 		|| word.substring(0, 1).equalsIgnoreCase("o") || word.substring(0, 1).equalsIgnoreCase("u") || word.substring(0, 1).equalsIgnoreCase("y")) {
-   
-	// 	   return false;
-	// 		   } 
-	// 		   else {
-	// 	   return true;
-	//   		 }
-	//  }
-	//	return true;
-			String firstLetter = word.substring(0,1);
-			if ("aeiouAEIOU".contains(firstLetter)){
-				return false;
-			}else{
-				return true;
-			}
+		// for (String letter: word) {
+		// if (word.substring(0, 1).equalsIgnoreCase("a") || word.substring(0,
+		// 1).equalsIgnoreCase("e") || word.substring(0, 1).equalsIgnoreCase("i")
+		// || word.substring(0, 1).equalsIgnoreCase("o") || word.substring(0,
+		// 1).equalsIgnoreCase("u") || word.substring(0, 1).equalsIgnoreCase("y")) {
+
+		// return false;
+		// }
+		// else {
+		// return true;
+		// }
+		// }
+		// return true;
+		String firstLetter = word.substring(0, 1);
+		if ("aeiouAEIOU".contains(firstLetter)) {
+			return false;
+		} else {
+			return true;
+		}
 
 	}
 
 	public static String getDomainName(String email) {
 		// 18
 
-		//return email.replaceAll("(^.*@.com$)", ";");
-		String [] split = email.split(".com");
-		split = split[0].split("@");
-	
-		return split[1];
+		return email.replaceAll("(^.*@|.com$)", "");
+		// String[] split = email.split(".com");
+		// split = split[0].split("@");
+
+		// return split[1];
 	}
 
 	public static int[] letterPosition(String name) {
 		// 19
-		return null;
+
+		// String lowerCaseName = name.toLowerCase();
+		// char [] alphabet = {'
+		// ','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		// int[] letterPosition = new int[lowerCaseName.length()];
+		// for (int i = 0; i < lowerCaseName.length(); i++ ){
+		// char target = lowerCaseName.charAt(i);
+		// int index = Chars.indexOf(alphabet,target);
+		// letterPosition[i] = index;
+		// }
+		// return letterPosition;
+
+		// on convertit tout notre name en minuscule qu'on stock ds une string pour pas
+		// avoir de soucis
+		String lowerCaseName = name.toLowerCase();
+
+		// on créer un tableau de char avec toutes les lettres de l'alphabet
+		char[] alphabet = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+				'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+		// on créer un nouveau tableau de integer avec comme longueur le nbx d'élement
+		// de notre string (donc chq index de hellokitty)
+		int[] letterPosition = new int[lowerCaseName.length()];
+
+		// on fait le tour de notre string lowercase
+		for (int i = 0; i < lowerCaseName.length(); i++) {
+			// la char target reprend les index de notre string lowerCase, donc les index de
+			// hellokitty
+			char target = lowerCaseName.charAt(i);
+			// ça nous donne l'index de notre texte (hellokitty) en fonction de l'alphabet.
+			// On connait donc la position de chq lettre de hellokitty dans l'alphabet
+			int index = Chars.indexOf(alphabet, target);
+			// on remplie letter position (notre tableau vide à la longueur de hellokitty)
+			// en fonction des résultats de notre int index
+			letterPosition[i] = index;
+
+		}
+		return letterPosition;
 	}
 
 	public static boolean isPeer(int number) {

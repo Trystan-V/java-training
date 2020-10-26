@@ -15,11 +15,10 @@ public class Series1 {
 	public static String helloWorld(String name) {
 		// 1
 		// Si le nom est Manu alors on veut "hello Manu" sinon on veut "hello World"
-		if (name == "Manu") {
-			return "Hello Manu";
-		} else {
+		if ((name == null) || (name == "")) {
 			return "Hello World";
-		}
+		} else
+			return "Hello " + name;
 	}
 
 	public static String[] removeNullElements(String[] array) {

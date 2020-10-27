@@ -11,7 +11,17 @@ public class Series2 {
 	}
 
 	public static List<String> selectElementsFromListStartingWithA(List<String> elements) {
-		return new ArrayList<>();
+		
+		ArrayList<String> stock = new ArrayList<String>();
+		
+		for (String mot : elements) {
+			if (mot.charAt(0) == 'a') {
+				stock.add(mot);
+				
+			}
+
+		} return stock;
+		
 	}
 
 	public static List<String> sortByLastLetter(List<String> names) {
@@ -83,15 +93,40 @@ public class Series2 {
 	}
 
 	public static int convertToCelsius(int temperature) {
-		return 0;
+		
+		int celsius;
+		if (temperature == 32) {
+			celsius = (temperature - 32) * 5 / 9;
+		} else {
+			celsius = ((temperature - 32) * 5 / 9) + 1;
+		}
+		 	
+		return celsius;
 	}
 
 	public static boolean isPeerSum(final int... numbers) {
-		return false;
+		
+		boolean resultat = false;
+		int num = 0;
+		
+		for (int count = 0;  count < numbers.length; count++) {
+			num = num + numbers[count];
+		}
+		
+		if (num % 2 == 0){
+			resultat = true;
+		}
+
+		return resultat;
+
 	}
 
 	public static boolean isRightTriangle(int side1, int side2, int side3) {
+		
+		
+		
 		return false;
+
 	}
 
 	public static boolean isOrder(int... number) {
@@ -99,11 +134,22 @@ public class Series2 {
 	}
 
 	public static Float intToFloat(int number) {
-		return null;
+		
+		float convert;
+
+		convert = (float)number;
+
+		return convert;
 	}
 
 	public static Integer floatToInt(float number) {
-		return null;
+		
+		int convert;
+		
+		convert = (int)number;
+		
+		return convert;
+
 	}
 
 	public static String dateToString(LocalDate date, String format) {

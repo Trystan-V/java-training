@@ -3,6 +3,7 @@ package fr.manulep.entrainement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 public class Series2 {
 	
@@ -38,7 +39,7 @@ public class Series2 {
 
 	public static List<String> getElementsLowerThanNumber(List<String> elements, int maxi) {
 		
-		
+
 		
 		return new ArrayList<>();
 	}
@@ -179,17 +180,31 @@ public class Series2 {
 	}
 
 	public static boolean isOrder(int... number) {
-		
-		boolean result = false;
-
-		// for (int i = 0; i < number.length; i++) {
-		// 	if (i < i++) {
-		// 		result = true;
-		// 		return result;
-		// 	} 
-		// }
-		return result;
+	
+	// 	System.out.println(number);
+	// ArrayList<int> numbers = number;
+	// ArrayList<int>[] compare = number;
+	// Arrays.sort(compare);
+	// 	if (numbers == compare) {
+	// 		return true;
+	// 	}
+	 	return false;
+	// }
 	}
+
+		//boolean result;
+		
+		 //for (int i = 0; i < number.length; i++) {
+	// 		if (number[1] < number[2]) {
+	// 			result = true;
+	// 			return result;
+	// 		} else {
+	// 			result = false;
+	// 		}
+	// 	 }
+
+	// 	return result;
+	// }
 
 	public static Float intToFloat(int number) {
 		

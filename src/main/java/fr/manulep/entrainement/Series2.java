@@ -53,7 +53,13 @@ public class Series2 {
 	}
 	
 	public static List<Integer> reverseOrder(List<Integer> elements) {
-		return new ArrayList<>();
+		
+		List<Integer>result = new ArrayList<>();
+				for (int i = elements.size()-1; i >= 0; i--) {
+					result.add(elements.get(i));
+				}
+
+		return result;
 	}
 
 	public static List<Integer> swapFirstandLastElement(List<Integer> elements) {
@@ -81,7 +87,15 @@ public class Series2 {
 	}
 
 	public static int roundUp(float number) {
-		return 0;
+		
+		//int result;
+		double arrondi;
+		
+		arrondi = Math.round(number);
+	
+		int result = (int)arrondi;
+		
+		return result;
 	}
 
 	public static int findLastDayOfMonth(int month, int year) {
@@ -93,15 +107,24 @@ public class Series2 {
 	}
 
 	public static int convertToCelsius(int temperature) {
-		
-		int celsius;
-		if (temperature == 32) {
-			celsius = (temperature - 32) * 5 / 9;
-		} else {
-			celsius = ((temperature - 32) * 5 / 9) + 1;
-		}
+	int result;
+	double convertorCelsius;
+	convertorCelsius = (temperature - 32);
+	convertorCelsius = convertorCelsius * 5/9;
+	convertorCelsius = Math.ceil(convertorCelsius);
+	result = (int)convertorCelsius;
+
+	return result;
+
+	
+		// int celsius;
+		// if (temperature == 32) {
+		// 	celsius = (temperature - 32) * 5 / 9;
+		// } else {
+		// 	celsius = ((temperature - 32) * 5 / 9) + 1;
+		// }
 		 	
-		return celsius;
+		// return celsius;
 	}
 
 	public static boolean isPeerSum(final int... numbers) {
@@ -123,14 +146,32 @@ public class Series2 {
 
 	public static boolean isRightTriangle(int side1, int side2, int side3) {
 		
+		Boolean result = false;
+		int powerSide1 = (int)Math.pow(side1, 2);
+		int powerSide2 = (int)Math.pow(side2, 2);
+		int powerSide3 = (int)Math.pow(side3, 2);
+
+		if (powerSide1 == powerSide2 + powerSide3 
+		|| powerSide2 == powerSide1 + powerSide3 
+		|| powerSide3 == powerSide1 + powerSide2){
+			result = true;
+		}
 		
-		
-		return false;
+		return result;
 
 	}
 
 	public static boolean isOrder(int... number) {
-		return false;
+		
+		boolean result = false;
+
+		// for (int i = 0; i < number.length; i++) {
+		// 	if (i < i++) {
+		// 		result = true;
+		// 		return result;
+		// 	} 
+		// }
+		return result;
 	}
 
 	public static Float intToFloat(int number) {

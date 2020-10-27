@@ -37,6 +37,9 @@ public class Series2 {
 	}
 
 	public static List<String> getElementsLowerThanNumber(List<String> elements, int maxi) {
+		
+		
+		
 		return new ArrayList<>();
 	}
 
@@ -71,7 +74,21 @@ public class Series2 {
 	}
 
 	public static String longestWord(String text) {
-		return null;
+
+		int longueur = 0;
+		text = text.replace(',', ' ');
+		String[] mots = text.split(" ");
+		String longestWord = "";
+
+		for (String word : mots) {
+			if (word.length() > longueur) {
+				longueur = word.length();
+				longestWord = word;
+			}
+		}
+
+		return longestWord;
+		//return null;
 	}
 
 	public static String getAllLetters(String[] array) {

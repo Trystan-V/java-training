@@ -180,7 +180,25 @@ public class Series2 {
 	}
 
 	public static boolean isOrder(int... number) {
-	
+		
+		boolean resultat = false;
+		List<Integer> emptyArray = new ArrayList<Integer>();
+		for (Integer num: number) {
+			emptyArray.add(num);
+			System.out.println(emptyArray);
+		}
+		if (emptyArray.size() == 1 ) {
+			resultat = true;
+		}else if(emptyArray.indexOf(0) <= emptyArray.indexOf(1) && emptyArray.indexOf(1)<= emptyArray.indexOf(2)){
+			resultat = true;
+		}else if(emptyArray.indexOf(0) >= emptyArray.indexOf(1) && emptyArray.indexOf(1)>= emptyArray.indexOf(2)){
+			resultat = true;
+		}
+
+		
+		//for (int i = number.length()-1; i >= 0; i--) {
+			
+		//}
 	// 	System.out.println(number);
 	// ArrayList<int> numbers = number;
 	// ArrayList<int>[] compare = number;
@@ -188,7 +206,7 @@ public class Series2 {
 	// 	if (numbers == compare) {
 	// 		return true;
 	// 	}
-	 	return false;
+	 	return resultat;
 	// }
 	}
 

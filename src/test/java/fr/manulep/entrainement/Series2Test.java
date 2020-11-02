@@ -311,9 +311,9 @@ class Series2Test {
 	@Test
 	public void checkIsOrder() {
 		assertEquals(true, Series2.isOrder(13, 14, 17));
-	//	assertEquals(false, Series2.isOrder(5, 8, 21, 14, 15));
+		assertEquals(false, Series2.isOrder(5, 8, 21, 14, 15));
 		assertEquals(true, Series2.isOrder(14, 13, 10, 8));
-	//	assertEquals(false, Series2.isOrder(5, 13, 8));
+		assertEquals(false, Series2.isOrder(5, 13, 8));
 		assertEquals(true, Series2.isOrder(5));
 	}
 

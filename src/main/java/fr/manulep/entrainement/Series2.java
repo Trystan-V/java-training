@@ -3,44 +3,43 @@ package fr.manulep.entrainement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
+import java.util.*;
 
 public class Series2 {
-	
+
 	private Series2() {
-		 throw new IllegalStateException("Test class");
+		throw new IllegalStateException("Test class");
 	}
 
 	public static List<String> selectElementsFromListStartingWithA(List<String> elements) {
-		
+
 		ArrayList<String> stock = new ArrayList<String>();
-		
+
 		for (String mot : elements) {
 			if (mot.charAt(0) == 'a') {
 				stock.add(mot);
-				
+
 			}
 
-		} return stock;
-		
+		}
+		return stock;
+
 	}
 
 	public static List<String> sortByLastLetter(List<String> names) {
 		return new ArrayList<>();
 	}
-	
+
 	public static String exportWordsWithoutALetter(List<String> names, char letter) {
 		return "";
 	}
-	
+
 	public static String getAllLetters(List<String> words) {
 		return "";
 	}
 
 	public static List<String> getElementsLowerThanNumber(List<String> elements, int maxi) {
-		
 
-		
 		return new ArrayList<>();
 	}
 
@@ -55,13 +54,13 @@ public class Series2 {
 	public static List<Integer> allElementsExceptFirstAndLast(List<Integer> elements) {
 		return new ArrayList<>();
 	}
-	
+
 	public static List<Integer> reverseOrder(List<Integer> elements) {
-		
-		List<Integer>result = new ArrayList<>();
-				for (int i = elements.size()-1; i >= 0; i--) {
-					result.add(elements.get(i));
-				}
+
+		List<Integer> result = new ArrayList<>();
+		for (int i = elements.size() - 1; i >= 0; i--) {
+			result.add(elements.get(i));
+		}
 
 		return result;
 	}
@@ -89,7 +88,7 @@ public class Series2 {
 		}
 
 		return longestWord;
-		//return null;
+		// return null;
 	}
 
 	public static String getAllLetters(String[] array) {
@@ -105,14 +104,14 @@ public class Series2 {
 	}
 
 	public static int roundUp(float number) {
-		
-		//int result;
+
+		// int result;
 		double arrondi;
-		
+
 		arrondi = Math.round(number);
-	
-		int result = (int)arrondi;
-		
+
+		int result = (int) arrondi;
+
 		return result;
 	}
 
@@ -125,36 +124,35 @@ public class Series2 {
 	}
 
 	public static int convertToCelsius(int temperature) {
-	int result;
-	double convertorCelsius;
-	convertorCelsius = (temperature - 32);
-	convertorCelsius = convertorCelsius * 5/9;
-	convertorCelsius = Math.ceil(convertorCelsius);
-	result = (int)convertorCelsius;
+		int result;
+		double convertorCelsius;
+		convertorCelsius = (temperature - 32);
+		convertorCelsius = convertorCelsius * 5 / 9;
+		convertorCelsius = Math.ceil(convertorCelsius);
+		result = (int) convertorCelsius;
 
-	return result;
+		return result;
 
-	
 		// int celsius;
 		// if (temperature == 32) {
-		// 	celsius = (temperature - 32) * 5 / 9;
+		// celsius = (temperature - 32) * 5 / 9;
 		// } else {
-		// 	celsius = ((temperature - 32) * 5 / 9) + 1;
+		// celsius = ((temperature - 32) * 5 / 9) + 1;
 		// }
-		 	
+
 		// return celsius;
 	}
 
 	public static boolean isPeerSum(final int... numbers) {
-		
+
 		boolean resultat = false;
 		int num = 0;
-		
-		for (int count = 0;  count < numbers.length; count++) {
+
+		for (int count = 0; count < numbers.length; count++) {
 			num = num + numbers[count];
 		}
-		
-		if (num % 2 == 0){
+
+		if (num % 2 == 0) {
 			resultat = true;
 		}
 
@@ -163,82 +161,120 @@ public class Series2 {
 	}
 
 	public static boolean isRightTriangle(int side1, int side2, int side3) {
-		
-		Boolean result = false;
-		int powerSide1 = (int)Math.pow(side1, 2);
-		int powerSide2 = (int)Math.pow(side2, 2);
-		int powerSide3 = (int)Math.pow(side3, 2);
 
-		if (powerSide1 == powerSide2 + powerSide3 
-		|| powerSide2 == powerSide1 + powerSide3 
-		|| powerSide3 == powerSide1 + powerSide2){
+		Boolean result = false;
+		int powerSide1 = (int) Math.pow(side1, 2);
+		int powerSide2 = (int) Math.pow(side2, 2);
+		int powerSide3 = (int) Math.pow(side3, 2);
+
+		if (powerSide1 == powerSide2 + powerSide3 || powerSide2 == powerSide1 + powerSide3
+				|| powerSide3 == powerSide1 + powerSide2) {
 			result = true;
 		}
-		
+
 		return result;
 
 	}
 
 	public static boolean isOrder(int... number) {
-		
+
 		boolean resultat = false;
 		List<Integer> emptyArray = new ArrayList<Integer>();
-		for (Integer num: number) {
+		List<Integer> compareArray = new ArrayList<Integer>();
+		for (Integer num : number) {
 			emptyArray.add(num);
-			System.out.println(emptyArray);
-		}
-		if (emptyArray.size() == 1 ) {
-			resultat = true;
-		}else if(emptyArray.indexOf(0) <= emptyArray.indexOf(1) && emptyArray.indexOf(1)<= emptyArray.indexOf(2)){
-			resultat = true;
-		}else if(emptyArray.indexOf(0) >= emptyArray.indexOf(1) && emptyArray.indexOf(1)>= emptyArray.indexOf(2)){
-			resultat = true;
+			compareArray.add(num);
+		
 		}
 
+		if (emptyArray.size() < 2) {
+			resultat = true;
+		} else if (emptyArray.get(0) < emptyArray.get(1)){
+
+			Collections.sort(compareArray);
+
+			if (emptyArray.equals(compareArray)) {
+				resultat = true;
+			}else if (emptyArray != compareArray) {
+				resultat = false;
+			}
+		}else if (emptyArray.get(0) > emptyArray.get(1)) {
+			Collections.sort(compareArray, Collections.reverseOrder());
+
+			if (emptyArray.equals(compareArray)) {
+				resultat = true;
+			}else if (emptyArray != compareArray) {
+				resultat = false;
+			}
+		}
+
+		// System.out.println(emptyArray);
+		// System.out.println(compareArray);
+
+		// if (emptyArray.equals(compareArray)){
+		// 	resultat = true;
+		// } else {
+		// 	resultat = false;
+		// }
 		
-		//for (int i = number.length()-1; i >= 0; i--) {
-			
-		//}
-	// 	System.out.println(number);
-	// ArrayList<int> numbers = number;
-	// ArrayList<int>[] compare = number;
-	// Arrays.sort(compare);
-	// 	if (numbers == compare) {
-	// 		return true;
-	// 	}
-	 	return resultat;
-	// }
+	return resultat;
+		// if (emptyArray.indexOf(0) <= emptyArray.indexOf(1) 
+		// && emptyArray.indexOf(1) <= emptyArray.indexOf(2) 
+		// && emptyArray.indexOf(2) <= emptyArray.indexOf(3)) {
+		// 	resultat = true;
+		// } else if (emptyArray.indexOf(0) >= emptyArray.indexOf(1) 
+		// && emptyArray.indexOf(1) >= emptyArray.indexOf(2) 
+		// && emptyArray.indexOf(2) >= emptyArray.indexOf(3)) {
+		// 	resultat = true;
+		// }else if (emptyArray.size() == 1 || emptyArray.size() == 0){
+
+		// } else {
+		// 	resultat = false;
+		// }
+
+		// for (int i = number.length()-1; i >= 0; i--) {
+
+		// }
+		// System.out.println(number);
+		// ArrayList<int> numbers = number;
+		// ArrayList<int>[] compare = number;
+		// Arrays.sort(compare);
+		// if (numbers == compare) {
+		// return true;
+		// }
+		
+		// }
 	}
 
-		//boolean result;
-		
-		 //for (int i = 0; i < number.length; i++) {
-	// 		if (number[1] < number[2]) {
-	// 			result = true;
-	// 			return result;
-	// 		} else {
-	// 			result = false;
-	// 		}
-	// 	 }
+	// boolean result;
 
-	// 	return result;
+	// for (int i = 0; i < number.length; i++) {
+	// if (number[1] < number[2]) {
+	// result = true;
+	// return result;
+	// } else {
+	// result = false;
+	// }
+	// }
+
+	// return result;
 	// }
 
 	public static Float intToFloat(int number) {
-		
+
 		float convert;
 
-		convert = (float)number;
+		convert = (float) number;
 
 		return convert;
 	}
 
 	public static Integer floatToInt(float number) {
-		
+
 		int convert;
-		
-		convert = (int)number;
-		
+
+		convert = (int) number;
+
 		return convert;
 
 	}
